@@ -4,7 +4,7 @@ This repository houses a python script that is used to read Binary Alignment Map
 # Cytosine Deaminase Sequence Context Preference Analysis Script
 
 Analyzes a BAM file (aligned with Bismark, used here purely as a
-mismatch-tolerant aligner — **not** for bisulfite sequencing) to determine
+mismatch-tolerant aligner) to determine
 the local sequence-context preference of a cytosine deaminase enzyme.
 
 ## Usage Notes
@@ -12,12 +12,10 @@ the local sequence-context preference of a cytosine deaminase enzyme.
 - The enzyme deaminates cytosine (C) to uracil (U), read as thymine (T)
   during sequencing.
 - Every C→T mismatch in a read relative to the reference genome is treated
-  as a deamination event. There is no sequencing-error correction and no
-  no-enzyme control comparison — every observed C→T transition in the
-  treated BAM is counted.
-- No bisulfite chemistry is involved. Bismark is used only because it
+  as a deamination event.
+- Bismark is used to process raw fastq files because it
   aligns reads containing C→T changes without penalizing them as
-  mismatches.
+  mismatches. There is no bisulfite chemistry in the experimental setup.
 
 ## Upstream pipeline
 
